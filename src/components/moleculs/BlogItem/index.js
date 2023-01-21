@@ -1,8 +1,11 @@
 import React from "react";
 import { Reglog } from "../../../assets";
+import { Button, Gap } from "../../atoms";
 import "./blogItem.scss";
+import { useNavigate } from "react-router-dom";
 
 const BlogItem = () => {
+  const navigate = useNavigate();
   return (
     <div className="blog-item">
       <img className="image-thumb" src={Reglog} alt="post" />
@@ -17,6 +20,8 @@ const BlogItem = () => {
           nostrum suscipit. Soluta consequuntur, consectetur, quisquam iure
           porro velit amet officiis temporibus sequi fugit necessitatibus id.
         </p>
+        <Gap height={20} />
+        <Button title="View Detail" onClick={() => navigate("/detail-blog")} />
       </div>
     </div>
   );

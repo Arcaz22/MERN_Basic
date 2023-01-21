@@ -1,9 +1,11 @@
 import React from "react";
 import { Reglog } from "../../assets";
-import { Gap } from "../../components";
+import { Gap, Link } from "../../components";
 import "./detail.blog.scss";
+import { navigate, useNavigate } from "react-router-dom";
 
 const DetailBlog = () => {
+  const navigate = useNavigate();
   return (
     <div className="detail-blog-wrapper">
       <Gap height={20} />
@@ -18,6 +20,8 @@ const DetailBlog = () => {
         molestias inventore laborum suscipit ea deserunt quidem incidunt.
         Minima, eos blanditiis?
       </p>
+      <Gap height={20} />
+      <Link title="Kembali ke Home" onClick={() => navigate("/")} />
     </div>
   );
 };
