@@ -1,0 +1,63 @@
+Standard API
+
+{root.api}/{version}/{grouping}/{endpoint}
+Sample: 
+http://mern-api.caablog.com/v1/auth/login
+
+Standard Status response
+200 - OK                    --> Call API Success
+201 - Created               --> Call API Success
+400 - Bad Request           --> Error on client Side
+401 - Unauthorized          --> User not Authorized
+403 - Forbidden             --> User not allowed to Access
+404 - Not Found             --> Request endpoint not Found
+500 - Internal Server Error -->Error on server Side
+502 - Bad Gateway           --> Invalid response from another Request
+
+GROUP: Authentication
+1. Register
+{root.api}/{version}/auth/register
+req:
+{
+  "name": "Testing",
+  "email": "test@gmail.com",
+  "password": 123123
+}
+res:
+{
+  "message": "Ready to test",
+  "data": {
+    "id": 1,
+    "name": "Testing",
+    "email": "test@gmail.com",
+    "password": 123123
+  }
+}
+err-response:
+201 -> Register Berhasil
+400 -> Input yang ada masukan tidak valid
+
+2. Login
+{root.api}/{version}/auth/login
+req:
+{
+  "email": "test@gmail.com",
+  "password": 123123
+}
+res:{
+  "message": "Login success",
+  "data": {
+    "uid: 1
+    "email": "test@gmail.com",
+    "token" : "2m2e2i10"
+  }
+}
+err-response:
+201 -> Register Berhasil
+400 -> Input yang ada masukan tidak valid
+
+GROUP: Blog
+1. Create Blog Post
+2. Get Blog Post
+3. Update Blog Post
+4. Delete Blog Post
