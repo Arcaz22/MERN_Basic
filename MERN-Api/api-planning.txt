@@ -11,7 +11,7 @@ Standard Status response
 401 - Unauthorized          --> User not Authorized
 403 - Forbidden             --> User not allowed to Access
 404 - Not Found             --> Request endpoint not Found
-500 - Internal Server Error -->Error on server Side
+500 - Internal Server Error --> Error on server Side
 502 - Bad Gateway           --> Invalid response from another Request
 
 GROUP: Authentication
@@ -58,6 +58,32 @@ err-response:
 
 GROUP: Blog
 1. Create Blog Post
+[POST] : {root.api}/{version}/blog/create/post
+req:
+{
+  "title": "Title Blog",
+  "image": "imagefile.png",
+  "body": "Lorem Ipsum",
+}
+res:
+{
+  "message": "Create Blog Post Success",
+  "data": {
+    "post_id": 1,
+    "title": "Title Blog",
+    "image": "imagefile.png",
+    "body": "Lorem Ipsum",
+    "create_at": "12/06/2020",
+    "author": {
+      "uid": 1,
+      "name": "Testing"
+    }
+  }
+}
+err-response:
+201 -> Register Berhasil
+400 -> Input yang ada masukan tidak valid
+
 2. Get Blog Post
 3. Update Blog Post
 4. Delete Blog Post
