@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");  
 const app = express();
 
 const authRoutes = require("./src/routes/auth");
@@ -28,6 +29,14 @@ app.use((error, req, res, next) => {
       message: message, 
       data : data
     });
-})
+});
 
-app.listen(4000);
+mongoose.set('strictQuery', false);
+mongoose.connect("mongodb+srv://chandra:BcU35wm4PgM19YCd@cluster0.0p4ilay.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Successfully connected to MongoDB Atlas');
+    app.listen(4000, () => console.log('App listening on port 4000'));
+  })
+  .catch(err => {
+    console.error(`Error connecting to MongoDB Atlas: ${err}`);
+  });
