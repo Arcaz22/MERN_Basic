@@ -32,7 +32,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb+srv://chandra:BcU35wm4PgM19YCd@cluster0.0p4ilay.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://chandra:BcU35wm4PgM19YCd@cluster0.0p4ilay.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, dbName: "blog"  })
   .then(() => {
     console.log('Successfully connected to MongoDB Atlas');
     app.listen(4000, () => console.log('App listening on port 4000'));
